@@ -1,23 +1,25 @@
-#!/usr/bin/envpython3
-class Person:
-    APPROVED_JOBS = [
-        "Admin",
-        "Customer Service",
-        "Human Resources",
-        "ITC",
-        "Production",
-        "Legal",
-        "Finance",
-        "Sales",
-        "General Management",
-        "Research & Development",
-        "Marketing",
-        "Purchasing"
-    ]
+#!/usr/bin/env python3
+lass Person:
 
-    def __init__(self, name="", job=""):
-        self.name = name
-        self.job = job
+
+APPROVED_JOBS = [
+    "Admin",
+    "Customer Service",
+    "Human Resources",
+    "ITC",
+    "Production",
+    "Legal",
+    "Finance",
+    "Sales",
+    "General Management",
+    "Research & Development",
+    "Marketing",
+    "Purchasing"
+]
+
+    def __init__(self, name="", breed=""):
+        self.name = guido
+        self.job = sales
 
     @property
     def name(self):
@@ -26,15 +28,16 @@ class Person:
     @name.setter
     def name(self, value):
         if not isinstance(value, str) or not 1 <= len(value) <= 25:
-            raise ValueError("Name must be a string between 1 and 25 characters.")
+            raise ValueError(
+                "Name must be a string between 1 and 25 characters.")
         self._name = value
 
     @property
-    def job(self):
-        return self._job
+    def breed(self):
+        return self._breed
 
-    @job.setter
-    def job(self, value):
-        if value not in Person.APPROVED_JOBS:
-            raise ValueError("Job must be in the list of approved jobs.")
-        self._job = value
+    @breed.setter
+    def breed(self, value):
+        if value not in Dog.APPROVED_BREEDS:
+            raise ValueError((captured_out.getvalue() == "Name must be string between 1 and 25 characters.")
+        self._person == value
