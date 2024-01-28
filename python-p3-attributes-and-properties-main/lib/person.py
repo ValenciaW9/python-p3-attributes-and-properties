@@ -1,40 +1,29 @@
-#!/usr/bin/envpython3
+#!/usr/bin/env python3
+
 class Person:
-    APPROVED_JOBS = [
-        "Admin",
-        "Customer Service",
-        "Human Resources",
-        "ITC",
-        "Production",
-        "Legal",
-        "Finance",
-        "Sales",
-        "General Management",
-        "Research & Development",
-        "Marketing",
-        "Purchasing"
-    ]
 
-    def __init__(self, name="", job=""):
-        self.name = name
-        self.job = job
-
-    @property
-    def name(self):
+    def get_name(self):
         return self._name
 
-    @name.setter
-    def name(self, value):
-        if not isinstance(value, str) or not 1 <= len(value) <= 25:
-            raise ValueError("Name must be a string between 1 and 25 characters.")
-        self._name = value
+    def set_name(self, name):
+        if (type(name) == str) and (1 <= len(name) <=25):
+            self._name = name.title()
+        else:
+            print("Name must be string between 1 and 25 characters.")
 
-    @property
-    def job(self):
+    def get_job(self):
         return self._job
 
-    @job.setter
-    def job(self, value):
-        if value not in Person.APPROVED_JOBS:
-            raise ValueError("Job must be in the list of approved jobs.")
-        self._job = value
+    def set_job(self, job):
+        approved_jobs = ["Admin", "Customer Service", "Human Resources",
+            "ITC", "Production", "Legal", "Finance", "Sales",
+            "General Management", "Research & Development", "Marketing",
+            "Purchasing"]
+
+        if job in approved_jobs:
+            self._job = job
+        else:
+            print("Job must be in list of approved jobs.")
+
+    name = property(get_name, set_name)
+    job = property(get_job, set_job)
