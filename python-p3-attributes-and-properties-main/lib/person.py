@@ -1,24 +1,23 @@
-
-
-APPROVED_JOBS = [
-    "Admin",
-    "Customer Service",
-    "Human Resources",
-    "ITC",
-    "Production",
-    "Legal",
-    "Finance",
-    "Sales",
-    "General Management",
-    "Research & Development",
-    "Marketing",
-    "Purchasing"
-]
-
+#!/usr/bin/envpython3
 class Person:
-    def __init__(self):
-        self._name = ""
-        self._job = ""
+    APPROVED_JOBS = [
+        "Admin",
+        "Customer Service",
+        "Human Resources",
+        "ITC",
+        "Production",
+        "Legal",
+        "Finance",
+        "Sales",
+        "General Management",
+        "Research & Development",
+        "Marketing",
+        "Purchasing"
+    ]
+
+    def __init__(self, name="", job=""):
+        self.name = name
+        self.job = job
 
     @property
     def name(self):
@@ -26,10 +25,9 @@ class Person:
 
     @name.setter
     def name(self, value):
-        if not isinstance(value, str) or len(value) >= 25:
-            print("Name must be a string under 25 characters.")
-        else:
-            self._name = value.title()  # Convert name to title case
+        if not isinstance(value, str) or not 1 <= len(value) <= 25:
+            raise ValueError("Name must be a string between 1 and 25 characters.")
+        self._name = value
 
     @property
     def job(self):
@@ -37,12 +35,6 @@ class Person:
 
     @job.setter
     def job(self, value):
-        if value not in APPROVED_JOBS:
-            print("Job must be in the list of approved jobs.")
-        else:
-            self._job = value
-
-
-
-
-
+        if value not in Person.APPROVED_JOBS:
+            raise ValueError("Job must be in the list of approved jobs.")
+        self._job = value
