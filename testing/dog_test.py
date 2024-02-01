@@ -12,7 +12,7 @@ class TestDog:
         '''is a class with the name "Dog".'''
         fido = Dog()
         assert(type(fido) == Dog)
-    
+        
     def test_name_not_empty(self):
         '''prints "Name must be string between 1 and 25 characters." if empty string.'''
         captured_out = io.StringIO()
