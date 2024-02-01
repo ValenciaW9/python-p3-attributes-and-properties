@@ -1,28 +1,24 @@
+#!/usr/bin/env python3
+
+
+APPROVED_BREEDS = [
+    "Mastiff",
+    "Chihuahua",
+    "Corgi",
+    "Shar Pei",
+    "Beagle",
+    "French Bulldog",
+    "Pug",
+    "Pointer"
+]
+
 class Dog:
-    approved_breeds = ["Mastiff", "Chihuahua", "Corgi",
-                       "Shar Pei", "Beagle", "French Bulldog", "Pug", "Pointer"]
-
-    def __init__(self, name=''):
+    def __init__(self, name, breed):
         self.name = name
+        self.breed = breed
 
-    @property
-    def name(self):
-        return self._name
+dog1 = Dog("Max", "Beagle")
+print(dog1.name)  # Output: Max
+print(dog1.breed)  # Output: Beagle
 
-    @name.setter
-    def name(self, value):
-        if isinstance(value, str) and 1 <= len(value) <= 25:
-            self._name = value
-        else:
-            print("Name must be a string between 1 and 25 characters.")
-
-    @property
-    def breed(self):
-        return self._breed
-
-    @breed.setter
-    def breed(self, value):
-        if value in self.approved_breeds:
-            self._breed = value
-        else:
-            print("Breed must be in the list of approved breeds.")
+dog2 = Dog("Bella", "Labrador")  # This breed is not in the approved list
